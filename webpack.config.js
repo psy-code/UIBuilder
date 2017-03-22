@@ -20,7 +20,7 @@ module.exports = {
 	},
 
 	devServer: {
-		publicPath: "/",
+		publicPath: path.resolve(__dirname, "/"),
 		contentBase: "./public",
 		hot: true
 	},

@@ -1,5 +1,8 @@
 import React from 'react'
-import Node from '../containers/Node'
+import { DragDropContext } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+
+import Node from '../containers/node'
 
 const Layer = () => {
 	return (
@@ -7,4 +10,4 @@ const Layer = () => {
 	)
 }
 
-export default Layer
+export default DragDropContext(HTML5Backend)(Layer)

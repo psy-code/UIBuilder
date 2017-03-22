@@ -34,10 +34,10 @@ export class Node extends Component {
 	}
 
 	render() {
-		const { childIds, type} = this.props
+		const { childIds, type, styles} = this.props
 		return React.createElement(
 			elements[type],
-			{onClick: this.handleAddChildClick, height: '100%', 'background-color': 'blue'},
+			{onClick: this.handleAddChildClick, ...styles},
 			childIds.map(this.renderChild)
 		)
 	}

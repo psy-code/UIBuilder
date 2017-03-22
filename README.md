@@ -10,3 +10,10 @@ Arquitectura de carpetas
 -elements: Son la minima unidad de construccion, estan formados por elementos basicos de html, no poseen logica, ni acceden al estado, solo renderizan sus propiedades.
 
 -reducers: Apliccan la logica que corresponda, para actualizar el estado, dependiendo de la accion recibida.
+
+TODO
+
+refactor ResizeBorder from '../elements/resize-border'
+
+Al crear una nueva pagina, se ingresan las propiedades de las paginas,
+estas corresponden al node 0, definidas en el initialState
