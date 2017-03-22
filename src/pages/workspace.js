@@ -1,9 +1,9 @@
 import React from 'react'
 
 import ResizableDragableBox from '../containers/resize-draggable-box'
-
 import Box from '../elements/box'
 import Subtitle from '../elements/subtitle'
+import Layer from '../components/layer'
 
 const Workspace = () => {
 	return (

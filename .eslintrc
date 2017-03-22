@@ -20,10 +20,6 @@
         "no-console" : [
             "warn"
         ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
         "quotes": [
             "warn",
             "single"
