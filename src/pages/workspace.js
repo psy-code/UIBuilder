@@ -12,7 +12,7 @@ const Workspace = () => {
 		<Box height="100%" background-color="gray" flex-direction="row">
 			<Box flex-grow="1">
 				<Subtitle color="white">Box</Subtitle>
-				<ResizableDragableBox width="50px" height="50px" background-color="purple" type="ResizableDraggableBox"/>
+				<ResizableDragableBox width="50px" height="50px" background-color="purple" type="Box"/>
 			</Box>
 			<Layer/>
 		</Box>

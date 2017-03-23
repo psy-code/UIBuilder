@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { findDOMNode } from 'react-dom'
 import { DragSource } from 'react-dnd'
 import Box from '../elements/box'
-import Resizable from './resize-hoc'
+import Resizable from '../hocs/resize-hoc'
 
 const boxSource = {
 	canDrag() {

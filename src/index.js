@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { persistState } from 'redux-devtools'
-import DevTools from './containers/devtool'
+import DevTools from './components/devtool'
 import Workspace from './pages/workspace'
 
 const finalCreateStore = compose(

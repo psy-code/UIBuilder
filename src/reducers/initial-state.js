@@ -1,7 +1,7 @@
 const initialDataTree = {
 	0: {
 		id: 0,
-		type: 'Box',
+		type: 'BoxDroppable',
 		counter: 0,
 		styles: {
 			height: '100%',

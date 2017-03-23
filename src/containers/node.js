@@ -10,17 +10,13 @@ export class Node extends Component {
 		increment(id)
 	}
 
-	handleAddChildClick = e => {
-		e.preventDefault()
-
-		const { addChild, createNode, id } = this.props
-		const childId = createNode().nodeId
+	handleAddChildClick = () => {
+		const { addChild, createNode, id, type } = this.props
+		const childId = createNode(type).nodeId
 		addChild(id, childId)
 	}
 
-	handleRemoveClick = e => {
-		e.preventDefault()
-
+	handleRemoveClick = () => {
 		const { removeChild, deleteNode, parentId, id } = this.props
 		removeChild(parentId, id)
 		deleteNode(id)
@@ -34,10 +30,10 @@ export class Node extends Component {
 	}
 
 	render() {
-		const { childIds, type, styles} = this.props
+		const { childIds, type} = this.props
 		return React.createElement(
 			elements[type],
-			{onClick: this.handleAddChildClick, ...styles},
+			{...this.props},
 			childIds.map(this.renderChild)
 		)
 	}

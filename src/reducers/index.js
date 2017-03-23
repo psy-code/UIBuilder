@@ -20,7 +20,7 @@ const node = (state, action) => {
 		case CREATE_NODE:
 			return {
 				id: action.nodeId,
-				type: 'Box',
+				type: action.nodeType,
 				counter: 0,
 				childIds: []
 			}

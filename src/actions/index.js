@@ -10,9 +10,10 @@ export const increment = (nodeId) => ({
 })
 
 let nextId = 0
-export const createNode = () => ({
+export const createNode = (type) => ({
 	type: CREATE_NODE,
-	nodeId: `new_${nextId++}`
+	nodeId: `new_${nextId++}`,
+	nodeType: type
 })
 
 export const deleteNode = (nodeId) => ({

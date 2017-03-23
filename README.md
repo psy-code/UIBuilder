@@ -17,3 +17,5 @@ refactor ResizeBorder from '../elements/resize-border'
 
 Al crear una nueva pagina, se ingresan las propiedades de las paginas,
 estas corresponden al node 0, definidas en el initialState
+
+crear accion "drop" para generalizar el hoc droppable que actualmente utiliza createNode, addChild
