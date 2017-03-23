@@ -19,3 +19,6 @@ Al crear una nueva pagina, se ingresan las propiedades de las paginas,
 estas corresponden al node 0, definidas en el initialState
 
 crear accion "drop" para generalizar el hoc droppable que actualmente utiliza createNode, addChild
+
+cuando tenga la bandera layer, renderiza desde el objeto styles en props, en develop, todas las props son heredadas, probar draggable y droppeable box en layer desde el arbol de datos, probar arbol de datos inicial con mas carga
+
