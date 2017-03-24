@@ -21,6 +21,7 @@ const node = (state, action) => {
 			return {
 				id: action.nodeId,
 				type: action.nodeType,
+				text: action.text,
 				counter: 0,
 				childIds: []
 			}

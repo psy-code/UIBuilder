@@ -7,6 +7,7 @@ import DragableBox from '../elements/box-draggable'
 import DnDBox from '../elements/box-dnd'
 import Box from '../elements/box'
 import Subtitle from '../elements/subtitle'
+import SubtitleDraggable from '../elements/subtitle-draggable'
 import Layer from '../components/layer'
 
 const Workspace = () => {
@@ -21,6 +22,8 @@ const Workspace = () => {
 				
 				<Subtitle color="white">Box DnD</Subtitle>
 				<DnDBox width="50px" height="50px" background-color="purple" type="Box"/>
+			
+				<SubtitleDraggable type="Subtitle" color="white">Subtitle Draggable</SubtitleDraggable>
 			</Box>
 			<Layer/>
 		</Box>

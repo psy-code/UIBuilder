@@ -1,4 +1,5 @@
 import './assets/style.css'
+import './assets/fonts/icons.css'
 import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
@@ -18,14 +19,14 @@ const finalCreateStore = compose(
 let store = finalCreateStore(reducer)
 
 const App = () => (
-		<Provider store={store}>
-			<div className="root">
-				
-				<Workspace/>
-				
-				<DevTools />
-			</div>
-		</Provider>
+	<Provider store={store}>
+		<div className="root">
+			
+			<Workspace/>
+			
+			<DevTools />
+		</div>
+	</Provider>
 )
 
 ReactDOM.render(<App />, document.getElementById('root'))

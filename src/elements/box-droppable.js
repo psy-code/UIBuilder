@@ -10,9 +10,10 @@ class BoxDroppable extends Component {
 	}
 
 	render() {
-		let {styles, children} = this.props
+		let {children, styles} = this.props
+		let props = (styles !== undefined) ? styles : this.props
 		return (
-			<Box {...styles}>
+			<Box {...props}>
 				{children}
 			</Box>
 		)

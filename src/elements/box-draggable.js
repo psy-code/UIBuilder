@@ -10,9 +10,10 @@ class BoxDraggable extends Component {
 	}
 
 	render() {
-		let {children} = this.props
+		let {children, styles} = this.props
+		let props = (styles !== undefined) ? styles : this.props
 		return (
-			<Box {...this.props}>
+			<Box {...props}>
 				{children}
 			</Box>
 		)

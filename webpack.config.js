@@ -1,7 +1,6 @@
 var path = require('path')
 
 module.exports = {
-	//context: path.resolve(__dirname, '/src'),
 	devtool: '#cheap-source-map',
 
 	entry: {
@@ -25,21 +24,12 @@ module.exports = {
 		hot: true
 	},
 
-	/*
-	resolve: {
-	    extensions: ['', '.js']
-	},
-	devtool: '#eval-source-map',
-	devtool: '#cheap-source-map',*/
-	
-
 	module: {
 		loaders: [ 
 			{ 	
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loaders: ['react-hot', "babel-loader"]
-				//loaders: ['babel-loader?presets[]=react,presets[]=es2015'],
 			},
 			{
 				test: /\.js$/,
@@ -50,6 +40,9 @@ module.exports = {
 				test: /\.css$/,
 				exclude: /node_modules/,
 				loaders: ['style', 'css']
+			},
+			{	test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+				loader: 'file-loader?name=src/assets/fonts/[name].[ext]'
 			}
 		]
 	}

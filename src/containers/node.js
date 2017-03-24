@@ -30,11 +30,13 @@ export class Node extends Component {
 	}
 
 	render() {
-		const { childIds, type} = this.props
+		const { childIds, type, text } = this.props
+		let render = (text !== undefined) ? text : childIds.map(this.renderChild)
+		
 		return React.createElement(
 			elements[type],
 			{...this.props},
-			childIds.map(this.renderChild)
+			render
 		)
 	}
 }
