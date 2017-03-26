@@ -1,5 +1,4 @@
-import React from 'react'
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 import elements from '../catalog'
@@ -26,13 +25,13 @@ export class Node extends Component {
 		const childId = createNode(type).nodeId
 		addChild(id, childId)
 	}
-
+/*
 	handleRemoveClick = () => {
 		const { removeChild, deleteNode, parentId, id } = this.props
 		removeChild(parentId, id)
 		deleteNode(id)
 	}
-
+*/
 	renderChild = childId => {
 		const { id } = this.props
 		return (

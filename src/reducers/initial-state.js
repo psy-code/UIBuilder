@@ -12,7 +12,8 @@ const initialDataTree = {
 			'flex-grow': '5'
 		},
 		childIds: [1, 2, 3, 4, 5],
-		selected: false
+		selected: false,
+		parentId: null
 	},
 	1: {
 		id: 1,
@@ -24,7 +25,8 @@ const initialDataTree = {
 			'background-color': 'green'
 		},
 		childIds: [],
-		selected: false
+		selected: false,
+		parentId: 0
 	},
 	2: {
 		id: 2,
@@ -36,7 +38,8 @@ const initialDataTree = {
 			'background-color': 'yellow'
 		},
 		childIds: [],
-		selected: false
+		selected: false,
+		parentId: 0 
 	},
 	3: {
 		id: 3,
@@ -48,7 +51,8 @@ const initialDataTree = {
 			'background-color': 'orange'
 		},
 		childIds: [],
-		selected: false
+		selected: false,
+		parentId: 0 
 	},
 	4: {
 		id: 4,
@@ -59,7 +63,8 @@ const initialDataTree = {
 			'color': 'orange'
 		},
 		childIds: [],
-		selected: false
+		selected: false,
+		parentId: 0 
 	},
 	5: {
 		id: 5,
@@ -70,7 +75,8 @@ const initialDataTree = {
 			'color': 'orange'
 		},
 		childIds: [],
-		selected: false
+		selected: false,
+		parentId: 0 
 	}
 }
 

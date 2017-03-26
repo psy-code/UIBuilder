@@ -1,5 +1,5 @@
 import { INCREMENT, ADD_CHILD, REMOVE_CHILD, CREATE_NODE, DELETE_NODE,
-	SELECT_NODE } from '../actions'
+	SELECT_NODE, ADD_STYLE } from '../actions'
 import initialState from './initial-state'
 
 const childIds = (state, action) => {
@@ -21,17 +21,24 @@ const node = (state, action) => {
 		
 		case CREATE_NODE:
 			return {
-				id: action.nodeId,
-				type: action.nodeType,
-				text: action.text,
-				counter: 0,
-				childIds: []
+				id: 		action.nodeId,
+				parentId: 	action.parentId,
+				type: 		action.nodeType,
+				text: 		action.text,
+				counter: 	0,
+				childIds: 	[]
 			}
 		
 		case INCREMENT:
 			return {
 				...state,
 				counter: state.counter + 1
+			}
+
+		case ADD_STYLE:
+			return {
+				...state,
+				styles: {...state.styles, ...action.style}
 			}
 
 		case ADD_CHILD:

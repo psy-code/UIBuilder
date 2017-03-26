@@ -11,7 +11,7 @@ import Subtitle from '../elements/subtitle'
 import Title from '../elements/title'
 import SubtitleDraggable from '../elements/subtitle-draggable'
 import Layer from '../components/layer'
-//import ElementProperties from '../components/element-properties'
+import ElementProperties from '../components/element-properties'
 import Logo from '../components/logo'
 
 const Workspace = () => {
@@ -37,7 +37,7 @@ const Workspace = () => {
 
 			<Layer/>
 
-			{/*<ElementProperties/>*/}
+			<ElementProperties/>
 
 		</Box>
 	)
