@@ -49,7 +49,10 @@ const Box = styled.div`
 			if (styles.hasOwnProperty(style) && !styles.hasOwnProperty('display'))
 				styles['display'] = 'flex'
 		})
-
+		//console.log(props.selected)
+		// selected layer propertie
+		if (props.selected)
+			styles['border'] = '1px solid red'
 		return styles
 	}}
 `

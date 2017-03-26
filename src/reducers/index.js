@@ -1,5 +1,7 @@
-import { INCREMENT, ADD_CHILD, REMOVE_CHILD, CREATE_NODE, DELETE_NODE } from '../actions'
+import { INCREMENT, ADD_CHILD, REMOVE_CHILD, CREATE_NODE, DELETE_NODE,
+	SELECT_NODE } from '../actions'
 import initialState from './initial-state'
+
 const childIds = (state, action) => {
 	switch (action.type) {
 		
@@ -31,7 +33,7 @@ const node = (state, action) => {
 				...state,
 				counter: state.counter + 1
 			}
-		
+
 		case ADD_CHILD:
 		case REMOVE_CHILD:
 			return {
@@ -56,6 +58,17 @@ const deleteMany = (state, ids) => {
 	return state
 }
 
+const selectNode = (state, id) => {
+	let newState = {}
+	Object.keys(state).forEach(key => {
+		newState[key] = {
+			...state[key],
+			selected: (String(id) === key) ? !state[key].selected : false
+		}
+	})
+	return newState
+}
+
 export default (state = initialState, action) => {
 	const { nodeId } = action
 	if (typeof nodeId === 'undefined') {
@@ -65,6 +78,13 @@ export default (state = initialState, action) => {
 	if (action.type === DELETE_NODE) {
 		const descendantIds = getAllDescendantIds(state, nodeId)
 		return deleteMany(state, [ nodeId, ...descendantIds ])
+	}
+
+	if (action.type === SELECT_NODE) {
+		return {
+			...selectNode(state, nodeId),
+			['layer']: nodeId,
+		}
 	}
 
 	return {

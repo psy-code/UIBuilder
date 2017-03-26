@@ -1,8 +1,15 @@
 import React from 'react'
 
-const Icon = ({name, size, color}) => {
+const Icon = (props) => {
+	let {name, size, color, onClick, selected} = props
+	let border = selected ? '1px solid red' : 'none'
+	let styles = {
+		fontSize: size,
+		color: color,
+		border: border
+	}
 	return (
-		<i className={'icon-' + name} style={{fontSize: size, color: color}}/>
+		<i onClick={onClick} className={'icon-' + name} style={styles}/>
 	)
 }
 

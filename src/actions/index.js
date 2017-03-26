@@ -1,6 +1,7 @@
 export const INCREMENT = 'INCREMENT'
 export const CREATE_NODE = 'CREATE_NODE'
 export const DELETE_NODE = 'DELETE_NODE'
+export const SELECT_NODE = 'SELECT_NODE'
 export const ADD_CHILD = 'ADD_CHILD'
 export const REMOVE_CHILD = 'REMOVE_CHILD'
 
@@ -10,14 +11,20 @@ export const increment = (nodeId) => ({
 })
 
 let nextId = 0
-export const createNode = (type) => ({
+export const createNode = (type, text) => ({
 	type: CREATE_NODE,
 	nodeId: `new_${nextId++}`,
-	nodeType: type
+	nodeType: type,
+	text: text
 })
 
 export const deleteNode = (nodeId) => ({
 	type: DELETE_NODE,
+	nodeId
+})
+
+export const selectNode = (nodeId) => ({
+	type: SELECT_NODE,
 	nodeId
 })
 

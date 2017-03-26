@@ -1,4 +1,7 @@
 const initialDataTree = {
+	'layer': {
+		selected: []
+	},
 	0: {
 		id: 0,
 		type: 'BoxDroppable',
@@ -6,9 +9,10 @@ const initialDataTree = {
 		styles: {
 			height: '100%',
 			'background-color': 'blue',
-			'flex-grow': '2'
+			'flex-grow': '5'
 		},
-		childIds: [1, 2, 3, 4, 5]
+		childIds: [1, 2, 3, 4, 5],
+		selected: false
 	},
 	1: {
 		id: 1,
@@ -19,7 +23,8 @@ const initialDataTree = {
 			width: '50px',
 			'background-color': 'green'
 		},
-		childIds: []
+		childIds: [],
+		selected: false
 	},
 	2: {
 		id: 2,
@@ -30,7 +35,8 @@ const initialDataTree = {
 			width: '50px',
 			'background-color': 'yellow'
 		},
-		childIds: []
+		childIds: [],
+		selected: false
 	},
 	3: {
 		id: 3,
@@ -41,7 +47,8 @@ const initialDataTree = {
 			width: '50px',
 			'background-color': 'orange'
 		},
-		childIds: []
+		childIds: [],
+		selected: false
 	},
 	4: {
 		id: 4,
@@ -51,17 +58,19 @@ const initialDataTree = {
 		styles: {
 			'color': 'orange'
 		},
-		childIds: []
+		childIds: [],
+		selected: false
 	},
 	5: {
-		id: 4,
+		id: 5,
 		type: 'Icon',
 		name: 'down-arrow',
 		counter: 0,
 		styles: {
 			'color': 'orange'
 		},
-		childIds: []
+		childIds: [],
+		selected: false
 	}
 }
 

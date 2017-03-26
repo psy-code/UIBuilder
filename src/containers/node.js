@@ -5,6 +5,17 @@ import * as actions from '../actions'
 import elements from '../catalog'
 
 export class Node extends Component {
+
+	constructor(props) {
+		super(props)
+	}
+
+	selectNode = e => {
+		e.stopPropagation()
+		let { selectNode, id } = this.props
+		selectNode(id)
+	}
+
 	handleIncrementClick = () => {
 		const { increment, id } = this.props
 		increment(id)
@@ -30,12 +41,12 @@ export class Node extends Component {
 	}
 
 	render() {
-		const { childIds, type, text } = this.props
+		const { childIds, type, text, selected } = this.props
 		let render = (text !== undefined) ? text : childIds.map(this.renderChild)
-		
+
 		return React.createElement(
 			elements[type],
-			{...this.props},
+			{ onClick: this.selectNode, ...this.props, selected },
 			render
 		)
 	}

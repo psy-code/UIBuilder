@@ -11,7 +11,7 @@ const Droppable = (WrappedComponent) => {
 
 			let {createNode, addChild, id} = props
 			let item = monitor.getItem()
-			let childId = createNode(item.type).nodeId
+			let childId = createNode(item.type, item.text).nodeId
 			addChild(id, childId)
 
 			return item
@@ -35,6 +35,7 @@ const Droppable = (WrappedComponent) => {
 
 		render() {
 			let { connectDropTarget, children } = this.props
+			
 			return (
 				<WrappedComponent
 					{...this.props}

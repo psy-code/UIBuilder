@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Subtitle = styled.h2`
+const Title = styled.h1`
 	border: ${ ({selected}) => (selected ? '1px solid red' : 'none')}
 	color: ${ props => props.color }
 `
 
-Subtitle.PropTypes = {
+Title.PropTypes = {
 	color: React.PropTypes.string
 }
 
-Subtitle.defaultProps = {
+Title.defaultProps = {
 	color: '#FFF'
 }
 
-export default Subtitle
+export default Title

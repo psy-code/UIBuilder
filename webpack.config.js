@@ -13,14 +13,14 @@ module.exports = {
 	},
 
 	output: {
-		path: path.resolve(__dirname, "public"),
+		path: path.resolve(__dirname, "/public"),
 		filename: "app.bundle.js",
-		publicPath: "/public/"
+		publicPath: path.resolve(__dirname, "/public")
 	},
 
 	devServer: {
-		publicPath: path.resolve(__dirname, "/"),
-		contentBase: "./public",
+		publicPath: path.resolve(__dirname, "/public"),
+		contentBase: "./",
 		hot: true
 	},
 
