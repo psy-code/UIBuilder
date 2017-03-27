@@ -5,6 +5,7 @@ export const SELECT_NODE = 'SELECT_NODE'
 export const ADD_CHILD = 'ADD_CHILD'
 export const REMOVE_CHILD = 'REMOVE_CHILD'
 export const ADD_STYLE = 'ADD_STYLE'
+export const UPDATE_TEXT = 'UPDATE_TEXT'
 
 export const increment = nodeId => ({
 	type: INCREMENT,
@@ -34,6 +35,12 @@ export const addStyle = (nodeId, style) => ({
 	type: ADD_STYLE,
 	nodeId,
 	style
+})
+
+export const updateText = (nodeId, text) => ({
+	type: UPDATE_TEXT,
+	nodeId,
+	text
 })
 
 export const addChild = (nodeId, childId) => ({

@@ -40,12 +40,13 @@ export class Node extends Component {
 	}
 
 	render() {
-		const { childIds, type, text, selected } = this.props
+		const { childIds, type, text, selected, styles } = this.props
 		let render = (text !== undefined) ? text : childIds.map(this.renderChild)
+		let style = (styles !== undefined)? {...styles, ...this.props} : this.props
 
 		return React.createElement(
 			elements[type],
-			{ onClick: this.selectNode, ...this.props, selected },
+			{ onClick: this.selectNode, ...style, selected },
 			render
 		)
 	}
