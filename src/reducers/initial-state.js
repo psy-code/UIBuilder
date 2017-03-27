@@ -56,7 +56,7 @@ const initialDataTree = {
 	},
 	4: {
 		id: 4,
-		type: 'Subtitle',
+		type: 'Subtitle1',
 		text: 'Subtitle',
 		counter: 0,
 		styles: {

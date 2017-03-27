@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Draggable from '../hocs/draggable-hoc'
-import Subtitle from './subtitle'
+import Subtitle4 from './subtitle4'
 
 @Draggable
-class SubtitleDraggable extends Component {
+class Subtitle4Draggable extends Component {
 
 	constructor(props) {
 		super(props)
@@ -14,11 +14,11 @@ class SubtitleDraggable extends Component {
 		let props = (styles !== undefined) ? styles : this.props
 		let value = (text !== undefined) ? text : children
 		return (
-			<Subtitle {...props}>
+			<Subtitle4 {...props}>
 				{value}
-			</Subtitle>
+			</Subtitle4>
 		)
 	}
 }
 
-export default SubtitleDraggable
+export default Subtitle4Draggable

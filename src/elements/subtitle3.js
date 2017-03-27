@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Title = styled.h1`
+const Subtitle3 = styled.h4`
 	border: ${ ({selected}) => (selected ? '1px solid red' : 'none')}
-	text-align: ${ (props) => (props.hasOwnProperty('text-align') ? props['text-align'] : 'none')}
 	color: ${ props => props.color }
+	text-align: ${ (props) => (props.hasOwnProperty('text-align') ? props['text-align'] : 'none')}
 `
 
-Title.PropTypes = {
+Subtitle3.PropTypes = {
 	color: React.PropTypes.string
 }
 
-Title.defaultProps = {
+Subtitle3.defaultProps = {
 	color: '#FFF'
 }
 
-export default Title
+export default Subtitle3
