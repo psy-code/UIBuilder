@@ -10,11 +10,11 @@ class Subtitle1Draggable extends Component {
 	}
 
 	render() {
-		let {children, styles, text} = this.props
+		let {children, styles, text, onClick, selected} = this.props
 		let props = (styles !== undefined) ? styles : this.props
 		let value = (text !== undefined) ? text : children
 		return (
-			<Subtitle1 {...props}>
+			<Subtitle1 {...props} onClick={onClick} selected={selected}>
 				{value}
 			</Subtitle1>
 		)

@@ -17,11 +17,11 @@ const initialDataTree = {
 	},
 	1: {
 		id: 1,
-		type: 'BoxDroppable',
+		type: 'Boxdnd',
 		counter: 0,
 		styles: {
-			height: '50px',
-			width: '50px',
+			height: '100px',
+			width: '100px',
 			'background-color': 'green'
 		},
 		childIds: [],
@@ -30,11 +30,11 @@ const initialDataTree = {
 	},
 	2: {
 		id: 2,
-		type: 'BoxDraggable',
+		type: 'Boxdnd',
 		counter: 0,
 		styles: {
-			height: '50px',
-			width: '50px',
+			height: '100px',
+			width: '100px',
 			'background-color': 'yellow'
 		},
 		childIds: [],
@@ -46,8 +46,8 @@ const initialDataTree = {
 		type: 'Boxdnd',
 		counter: 0,
 		styles: {
-			height: '50px',
-			width: '50px',
+			height: '100px',
+			width: '100px',
 			'background-color': 'orange'
 		},
 		childIds: [],
@@ -56,7 +56,7 @@ const initialDataTree = {
 	},
 	4: {
 		id: 4,
-		type: 'Subtitle1',
+		type: 'Subtitle1Draggable',
 		text: 'Subtitle',
 		counter: 0,
 		styles: {

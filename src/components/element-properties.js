@@ -5,7 +5,7 @@ import * as actions from '../actions'
 import Button from '../elements/button'
 import Box from '../elements/box'
 import Title from '../elements/title'
-import Subtitle from '../elements/subtitle'
+import Subtitle1 from '../elements/subtitle1'
 import Label from '../elements/label'
 import List from '../elements/list'
 import ItemList from '../elements/item-list'
@@ -96,12 +96,12 @@ export class ElemenetProperties extends Component {
 							</Box>
 						}
 
-						<Subtitle>Styles</Subtitle>
+						<Subtitle1>Styles</Subtitle1>
 						{this.renderStyles(styles)}
 
 						{ (Object.keys(childIds).length > 0) &&
 							<Box>
-								<Subtitle>Childs</Subtitle>
+								<Subtitle1>Childs</Subtitle1>
 								{this.childList()}
 							</Box>
 						}
