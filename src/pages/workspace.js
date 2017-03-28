@@ -40,9 +40,7 @@ const Workspace = () => {
 				<DragableBox width="50px" height="50px" background-color="purple" type="Box"/>
 				
 				<Subtitle1 color="white">Box DnD</Subtitle1>
-				<DnDBox width="50px" height="50px" background-color="purple" type="Box"/>
-			
-				<Subtitle1Draggable type="Subtitle" color="white" value="drag text ;)">Subtitle Draggable</Subtitle1Draggable>
+				<DnDBox width="50px" height="50px" background-color="purple" type="Boxdnd"/>
 			
 				<Icon name="down-arrow"/>
 				<Logo link="/#" image="/src/assets/images/Jevelin-logov1.png"/>

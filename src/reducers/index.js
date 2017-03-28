@@ -1,5 +1,5 @@
 import { INCREMENT, ADD_CHILD, REMOVE_CHILD, CREATE_NODE, DELETE_NODE,
-	SELECT_NODE, ADD_STYLE, UPDATE_TEXT } from '../actions'
+	SELECT_NODE, ADD_STYLE, UPDATE_TEXT, MOVE_NODE } from '../actions'
 import initialState from './initial-state'
 
 const childIds = (state, action) => {
@@ -47,6 +47,13 @@ const node = (state, action) => {
 				text: action.text
 			}
 
+		case MOVE_NODE:
+			return {
+				...state,
+				childIds: orderChilds(state.childIds, action.dragId, action.hoverId)
+			}
+
+
 		case ADD_CHILD:
 		case REMOVE_CHILD:
 			return {
@@ -57,6 +64,15 @@ const node = (state, action) => {
 		default:
 			return state
 	}
+}
+
+const orderChilds = (childIds, nodeId, hoverId) => {
+	let newOrder = [...childIds]
+	let nodeIndex = childIds.indexOf(nodeId)
+	let hoverIndex = childIds.indexOf(hoverId)
+	newOrder[nodeIndex] = hoverId
+	newOrder[hoverIndex] = nodeId
+	return newOrder
 }
 
 const getAllDescendantIds = (state, nodeId) => (
