@@ -20,6 +20,8 @@ import Image 				from './elements/image'
 import Label 				from './elements/label'
 import Logo 				from './components/logo'
 
+
+// this file can be placed in element as index
 const elements = {
 	'Box': 					Box,
 	'BoxDroppable': 		BoxDroppable,

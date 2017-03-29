@@ -26,6 +26,7 @@ const node = (state, action) => {
 				type: 		action.nodeType,
 				text: 		action.text,
 				counter: 	0,
+				styles: 	{},
 				childIds: 	[]
 			}
 		

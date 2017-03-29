@@ -6,6 +6,7 @@ const Droppable = (WrappedComponent) => {
 
 	const boxTarget = {
 		drop(props, monitor) {
+			//console.log('drop', props)
 
 			if (!monitor.isOver()) return
 			let {createNode, addChild, id} = props
@@ -20,6 +21,8 @@ const Droppable = (WrappedComponent) => {
 		},
 
 		hover(props, monitor, component) {
+			//console.log('hover', props)
+
 			const dragId = monitor.getItem().id
 			const dragParentId = monitor.getItem().parentId
 			const hoverId = props.id
@@ -48,7 +51,7 @@ const Droppable = (WrappedComponent) => {
 			// Dragging upwards
 			if (dragId > hoverId && hoverClientY > hoverMiddleY)
 				return
-
+			console.log(props)
 			props.moveNode(dragParentId, dragId, hoverId)
 		}
 	}
@@ -69,11 +72,12 @@ const Droppable = (WrappedComponent) => {
 		}
 
 		render() {
-			let { connectDropTarget, children } = this.props
+			let { connectDropTarget, children, ownState } = this.props
 			
+			let spread = (ownState === undefined) ? this.props : ownState.styles
 			return (
 				<WrappedComponent
-					{...this.props}
+					{...spread}
 					ref={instance => connectDropTarget(findDOMNode(instance))}>
 					{children}
 				</WrappedComponent>

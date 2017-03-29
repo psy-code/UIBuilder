@@ -11,7 +11,7 @@ const initialDataTree = {
 			'background-color': 'blue',
 			'flex-grow': '5'
 		},
-		childIds: [1, 2, 3, 4, 5],
+		childIds: [1, 2, 3, 4],
 		selected: false,
 		parentId: null
 	},
@@ -58,18 +58,6 @@ const initialDataTree = {
 		id: 4,
 		type: 'Subtitle1Draggable',
 		text: 'Subtitle',
-		counter: 0,
-		styles: {
-			'color': 'orange'
-		},
-		childIds: [],
-		selected: false,
-		parentId: 0 
-	},
-	5: {
-		id: 5,
-		type: 'Icon',
-		name: 'down-arrow',
 		counter: 0,
 		styles: {
 			'color': 'orange'

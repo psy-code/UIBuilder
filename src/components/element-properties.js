@@ -9,7 +9,35 @@ import Subtitle1 from '../elements/subtitle1'
 import Label from '../elements/label'
 import List from '../elements/list'
 import ItemList from '../elements/item-list'
+import LabelInputText from '../elements/label-input-text'
 //import ToggleButton from '../toggle-button'
+
+let textProperties = [
+	'text-align', 'color', 'font-size',	'font-family'
+]
+
+let divProperties = [
+	'width', 'height', 'background-color', 'flex-direction'
+]
+
+const elementProperties = {
+	'BoxDroppable': 		divProperties,
+	'BoxDraggable': 		divProperties,
+	'Boxdnd': 				divProperties,
+
+	'TitleDraggable': 		textProperties,
+	'Subtitle1Draggable': 	textProperties,
+	'Subtitle2Draggable': 	textProperties,
+	'Subtitle3Draggable': 	textProperties,
+	'Subtitle4Draggable': 	textProperties,
+	'Subtitle5Draggable': 	textProperties,
+/*
+	'Logo': 				Logo,
+	'Link': 				Link,
+	'Image': 				Image,
+	'Icon': 				Icon,
+	'Label': 				Label*/
+}
 
 export class ElemenetProperties extends Component {
 	
@@ -59,23 +87,23 @@ export class ElemenetProperties extends Component {
 		)
 	}
 
-	renderStyles = (styles) => {
-		let result = []
-		for (let style in styles) {
-			result.push(
-				<div key={style}>
-					<Label>{style}</Label>
-					<input type="text" onChange={this.handleChangeStyle.bind(this, style)} value={styles[style]}/>
-				</div>
-			)
-		}
-		return result
+	renderStyleProperties = () => {
+		let { type, styles } = this.props
+		let map = elementProperties[type].map( property => {
+			let value = (styles[property] !== undefined) ? styles[property] : ''
+			return <LabelInputText key={property} label={property} onChange={this.handleChangeStyle.bind(this, property)} value={value}/>
+		})
+
+		return (
+			<Box>
+				<Subtitle1>Styles</Subtitle1>
+				{map}
+			</Box>
+		)
 	}
 
-
-
 	render() {
-		let {type, id, selected, styles, childIds, text} = this.props
+		let {type, id, selected, childIds} = this.props
 		return (
 			<Box flex-grow="4">
 				<Title color="white">Properties panel</Title>
@@ -86,18 +114,8 @@ export class ElemenetProperties extends Component {
 						<input type="input" disabled value={id}/>
 						<Label>Type</Label>
 						<input type="input" disabled value={type}/>
-						<br/>
-						
-						{ (text !== undefined) &&
-							<Box>
-								<input type="input" onChange={this.handleTextUpdate} value={text}/>
-								<Label>Align</Label>
-								<input type="text" onChange={this.handleChangeStyle.bind(this, 'text-align')} value=""/>
-							</Box>
-						}
-
-						<Subtitle1>Styles</Subtitle1>
-						{this.renderStyles(styles)}
+				
+						{this.renderStyleProperties()}
 
 						{ (Object.keys(childIds).length > 0) &&
 							<Box>
@@ -105,19 +123,6 @@ export class ElemenetProperties extends Component {
 								{this.childList()}
 							</Box>
 						}
-						<br/>
-						<Label>height</Label>
-						<input type="text" onChange={this.handleChangeStyle.bind(this, 'height')} value=""/>
-						<br/>
-						<Label>width</Label>
-						<input type="text" onChange={this.handleChangeStyle.bind(this, 'width')} value=""/>
-						<br/>
-						<Label>background-color</Label>
-						<input type="text" onChange={this.handleChangeStyle.bind(this, 'background-color')} value=""/>
-						<br/>
-						<Label>flex-direction</Label>
-						<input type="text" onChange={this.handleChangeStyle.bind(this, 'flex-direction')} value=""/>
-						
 
 						<Button onClick={this.handleRemoveClick}>Delete element</Button>
 					</Box>
