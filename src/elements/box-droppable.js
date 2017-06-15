@@ -5,16 +5,19 @@ import Box from './box'
 @Droppable
 class BoxDroppable extends Component {
 
+	static propTypes = {
+
+	}
+
 	constructor(props) {
 		super(props)
 	}
 
 	render() {
-		let {children, styles, onClick, selected} = this.props
-		let props = (styles !== undefined) ? styles : this.props
+		let { children, onClick } = this.props
 
 		return (
-			<Box {...props} onClick={onClick} selected={selected}>
+			<Box {...this.props} onClick={onClick} >
 				{children}
 			</Box>
 		)

@@ -11,7 +11,8 @@ const Draggable = (WrappedComponent) => {
 			return true
 		},
 		beginDrag(props) {
-			let { id, type, value, parentId } = props
+			console.log(props)
+			let { id, type, parentId, value } = props.ownState
 			return { id: id, type: type, text: value, parentId: parentId }
 		}
 	}

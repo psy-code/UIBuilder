@@ -8,7 +8,6 @@ export class Node extends Component {
 
 	constructor(props) {
 		super(props)
-		this.selectNode = this.selectNode.bind(this)
 	}
 
 	selectNode = e => {
@@ -20,7 +19,7 @@ export class Node extends Component {
 	}
 
 	renderChild = childId => {
-		let { id } = this.props
+		let { id } = this.props.ownState
 		return (
 			<ConnectedNode id={childId} key={childId} parentId={id} />
 		)
@@ -28,12 +27,18 @@ export class Node extends Component {
 
 	render() {
 		let { actions, ownState } = this.props
-		let { childIds, type, text } = ownState
+		let { childIds, type, text, selected } = ownState
 		let render = (text !== undefined) ? text : childIds.map(this.renderChild)
+		let props = { ...ownState.styles }
+		
+		// select must be a hoc build with box, not changing the props of the element
+		if (selected)
+			props = {...props, 'border': '1px solid red',}
 
 		return React.createElement(
 			elements[type],
 			{
+				...props,
 				onClick: this.selectNode,
 				ownState,
 				actions

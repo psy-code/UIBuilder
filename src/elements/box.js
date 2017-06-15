@@ -20,7 +20,7 @@ const Box = styled.div`
 		const flexParent = ['flex-direction', 'flex-wrap', 'justify-content', 'align-items', 'align-content']
 		const flexChildren = ['flex', 'order', 'flex-grow', 'flex-shrink', 'flex-basis', 'align-self']
 		const styleProps = [
-			'background', 'background-color', 'background-image', 'background-size', 'background-position',
+			'border', 'background', 'background-color', 'background-image', 'background-size', 'background-position',
 			'background-attachment', 'color', 'width', 'height', 'opacity', 'margin', 'margin-top', 'position',
 			'align-content', 'display', 'padding', 'padding-bottom']
 

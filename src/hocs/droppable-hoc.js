@@ -6,15 +6,14 @@ const Droppable = (WrappedComponent) => {
 
 	const boxTarget = {
 		drop(props, monitor) {
-			//console.log('drop', props)
-
 			if (!monitor.isOver()) return
-			let {createNode, addChild, id} = props
+			let { actions, ownState } = props
+			let { id, type, text } = ownState
 			let item = monitor.getItem()
 			
-			if (item.id === undefined) {
-				let childId = createNode(id, item.type, item.text).nodeId
-				addChild(id, childId)
+			if (id === undefined) {
+				let childId = actions.createNode(id, type, text).nodeId
+				actions.addChild(id, childId)
 			}
 
 			return item
@@ -22,26 +21,26 @@ const Droppable = (WrappedComponent) => {
 
 		hover(props, monitor, component) {
 			//console.log('hover', props)
-
-			const dragId = monitor.getItem().id
-			const dragParentId = monitor.getItem().parentId
-			const hoverId = props.id
-			const hoverParentId = props.parentId
+			let { moveNode } = props.actions
+			let dragId = monitor.getItem().id
+			let dragParentId = monitor.getItem().parentId
+			let hoverId = props.ownState.id
+			let hoverParentId = props.ownState.parentId
 
 			if (dragId === hoverId || !monitor.isOver({ shallow: true }) || hoverParentId === null || dragId === undefined)
 				return
 
 			// Determine rectangle on screen
-			const hoverBoundingRect = findDOMNode(component).getBoundingClientRect()
+			let hoverBoundingRect = findDOMNode(component).getBoundingClientRect()
 			
 			// Get vertical middle
-			const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
+			let hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
 
 			// Determine mouse position
-			const clientOffset = monitor.getClientOffset()
+			let clientOffset = monitor.getClientOffset()
 
 			// Get pixels to the top
-			const hoverClientY = clientOffset.y - hoverBoundingRect.top
+			let hoverClientY = clientOffset.y - hoverBoundingRect.top
 
 
 			// Dragging downwards
@@ -51,8 +50,8 @@ const Droppable = (WrappedComponent) => {
 			// Dragging upwards
 			if (dragId > hoverId && hoverClientY > hoverMiddleY)
 				return
-			console.log(props)
-			props.moveNode(dragParentId, dragId, hoverId)
+
+			moveNode(dragParentId, dragId, hoverId)
 		}
 	}
 
@@ -72,12 +71,11 @@ const Droppable = (WrappedComponent) => {
 		}
 
 		render() {
-			let { connectDropTarget, children, ownState } = this.props
-			
-			let spread = (ownState === undefined) ? this.props : ownState.styles
+			let { connectDropTarget, children, onClick} = this.props
 			return (
 				<WrappedComponent
-					{...spread}
+					onClick={onClick}
+					{...this.props}
 					ref={instance => connectDropTarget(findDOMNode(instance))}>
 					{children}
 				</WrappedComponent>
