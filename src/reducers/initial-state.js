@@ -27,7 +27,7 @@ const initialDataTree = {
 		childIds: [],
 		selected: false,
 		parentId: 0
-	},
+	}/*,
 	2: {
 		id: 2,
 		type: 'Boxdnd',
@@ -77,7 +77,7 @@ const initialDataTree = {
 		childIds: [],
 		selected: false,
 		parentId: 0 
-	}
+	}*/
 }
 
 export default initialDataTree

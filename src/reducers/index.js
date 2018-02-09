@@ -1,7 +1,39 @@
-import { INCREMENT, ADD_CHILD, REMOVE_CHILD, CREATE_NODE, DELETE_NODE,
-	SELECT_NODE, ADD_STYLE, UPDATE_TEXT, MOVE_NODE } from '../actions'
-import initialState from './initial-state'
+//import { INCREMENT, ADD_CHILD, REMOVE_CHILD, CREATE_NODE, DELETE_NODE,
+//	SELECT_NODE, ADD_STYLE, UPDATE_TEXT, MOVE_NODE } from '../actions'
+import { DELETE_NODE, SELECT_NODE } from '../actions'
+//import { schema } from './models/schema.js'
+//import orm from './models/schema'
+//import initialState from './initial-state'
 
+//const initialState = orm.getEmptyState()
+
+
+
+export default (dbState = 0, action) => {
+	/*
+	console.log('dbstate: ', dbState)
+	const sess = orm.session(dbState)
+	const { Node } = sess
+
+	console.log('sess.state', sess.state)
+	console.log()
+	Node.all()
+*/
+	switch (action.type) {
+		case DELETE_NODE:
+			Node.withId(action.payload.nodeId).delete()
+			break
+		case SELECT_NODE:
+			Node.withId(action.payload.nodeId).selected = true
+			break
+	}
+
+
+	return dbState
+}
+
+
+/*
 const childIds = (state, action) => {
 	switch (action.type) {
 		
@@ -97,7 +129,9 @@ const selectNode = (state, id) => {
 	})
 	return newState
 }
+*/
 
+/*
 export default (state = initialState, action) => {
 	const { nodeId } = action
 	if (typeof nodeId === 'undefined') {
@@ -121,3 +155,4 @@ export default (state = initialState, action) => {
 		[nodeId]: node(state[nodeId], action)
 	}
 }
+*/

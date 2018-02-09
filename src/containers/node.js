@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 import elements from '../catalog'
+import { nodes } from '../selectors/node'
 
 export class Node extends Component {
 
@@ -40,8 +41,10 @@ export class Node extends Component {
 	}
 
 	render() {
-		const { childIds, type, text, selected, styles } = this.props
-		let render = (text !== undefined) ? text : childIds.map(this.renderChild)
+		console.log('render ', this.props)
+		const { children, type, text, selected, styles } = this.props
+		//const { childIds, type, text, selected, styles } = this.props
+		let render = (text !== undefined) ? text : children.map(this.renderChild)
 		let style = (styles !== undefined)? {...styles, ...this.props} : this.props
 
 		return React.createElement(
@@ -53,7 +56,13 @@ export class Node extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-	return state[ownProps.id]
+	console.log('mapStateToProps', state)
+	console.log('ownProps', ownProps)
+	console.log()
+	/*
+	console.log('state: ', state, ownProps, state[ownProps.id])*/
+	//console.log('nodeSelector', nodes(state))
+	return nodes(state, ownProps.id)
 }
 
 const ConnectedNode = connect(mapStateToProps, actions)(Node)
