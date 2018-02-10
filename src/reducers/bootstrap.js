@@ -23,12 +23,11 @@ export default function bootstrap(schema) {
 	})
 
 	Node.create({
-		id: 1,
 		parent: 0,
 		type: 'BoxDroppable',
 		styles: {
-			height: '100%',
-			'background-color': 'blue',
+			height: '100px',
+			'background-color': 'red',
 			'flex-grow': '5'
 		}
 	})
@@ -91,7 +90,6 @@ export default function bootstrap(schema) {
 
 	// Return the whole Redux initial state.
 	return {
-		orm: state,
-		idRoot: 0
+		orm: state
 	}
 }

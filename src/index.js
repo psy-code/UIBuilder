@@ -2,7 +2,7 @@ import './assets/style.css'
 import './assets/fonts/icons.css'
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-import reducer from './reducers'
+//import reducer from './reducers'
 import thunk from 'redux-thunk'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -13,8 +13,7 @@ import schema from './reducers/models/schema'
 import bootstrap from './reducers/bootstrap'
 
 const rootReducer = combineReducers({
-	orm: schema.reducer(),
-	idRoot: reducer
+	orm: schema.reducer()
 	//reducer: reducer
 })
 

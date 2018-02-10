@@ -33,6 +33,7 @@ export class Node extends Component {
 		deleteNode(id)
 	}
 */
+
 	renderChild = childId => {
 		const { id } = this.props
 		return (
@@ -41,12 +42,10 @@ export class Node extends Component {
 	}
 
 	render() {
-		console.log('render ', this.props)
 		const { children, type, text, selected, styles } = this.props
-		//const { childIds, type, text, selected, styles } = this.props
 		let render = (text !== undefined) ? text : children.map(this.renderChild)
 		let style = (styles !== undefined)? {...styles, ...this.props} : this.props
-
+		
 		return React.createElement(
 			elements[type],
 			{ onClick: this.selectNode, ...style, selected },
@@ -56,12 +55,6 @@ export class Node extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-	console.log('mapStateToProps', state)
-	console.log('ownProps', ownProps)
-	console.log()
-	/*
-	console.log('state: ', state, ownProps, state[ownProps.id])*/
-	//console.log('nodeSelector', nodes(state))
 	return nodes(state, ownProps.id)
 }
 

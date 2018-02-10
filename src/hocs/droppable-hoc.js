@@ -8,12 +8,13 @@ const Droppable = (WrappedComponent) => {
 		drop(props, monitor) {
 
 			if (!monitor.isOver()) return
-			let {createNode, addChild, id} = props
+			let {createNode, id} = props
 			let item = monitor.getItem()
 			
 			if (item.id === undefined) {
-				let childId = createNode(id, item.type, item.text).nodeId
-				addChild(id, childId)
+				//let childId = 
+				createNode(id, item.type, item.text).nodeId
+				//addChild(id, childId)
 			}
 
 			return item

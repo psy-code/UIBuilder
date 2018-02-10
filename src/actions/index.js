@@ -8,19 +8,19 @@ export const REMOVE_CHILD = 'REMOVE_CHILD'
 export const ADD_STYLE = 'ADD_STYLE'
 export const UPDATE_TEXT = 'UPDATE_TEXT'
 
+/*
 export const increment = nodeId => ({
 	type: INCREMENT,
 	nodeId
-})
+})*/
 
-let nextId = 6
 export const createNode = (parentId, type, text) => ({
 	type: CREATE_NODE,
-	//nodeId: `${nextId++}`,
-	nodeId: nextId++,
-	nodeType: type,
-	text,
-	parentId
+	payload: {
+		nodeType: type,
+		text,
+		parentId
+	}
 })
 
 export const deleteNode = nodeId => ({
@@ -30,7 +30,7 @@ export const deleteNode = nodeId => ({
 
 export const selectNode = nodeId => ({
 	type: SELECT_NODE,
-	nodeId
+	payload: nodeId
 })
 
 export const moveNode = (parentId, dragId, hoverId) => ({
@@ -52,11 +52,12 @@ export const updateText = (nodeId, text) => ({
 	text
 })
 
+/*
 export const addChild = (nodeId, childId) => ({
 	type: ADD_CHILD,
 	nodeId,
 	childId
-})
+})*/
 
 export const removeChild = (nodeId, childId) => ({
 	type: REMOVE_CHILD,

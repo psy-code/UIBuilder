@@ -1,10 +1,7 @@
 import { schema } from '../reducers/models/schema'
 import { createSelector } from 'reselect'
 
-export const ormSelector = (state, id) => {
-	console.log('ormSelector', state, id)
-	return state.orm
-}
+export const ormSelector = state => state.orm
 
 export const nodes = createSelector(
 	ormSelector,

@@ -7,27 +7,18 @@ import { DELETE_NODE, SELECT_NODE } from '../actions'
 
 //const initialState = orm.getEmptyState()
 
-
-
 export default (dbState = 0, action) => {
-	/*
-	console.log('dbstate: ', dbState)
-	const sess = orm.session(dbState)
-	const { Node } = sess
+console.log('reducer')
+	const {type, payload} = action
 
-	console.log('sess.state', sess.state)
-	console.log()
-	Node.all()
-*/
-	switch (action.type) {
+	switch (type) {
+
 		case DELETE_NODE:
-			Node.withId(action.payload.nodeId).delete()
-			break
-		case SELECT_NODE:
-			Node.withId(action.payload.nodeId).selected = true
-			break
-	}
+			return payload
 
+		case SELECT_NODE:
+			return payload
+	}
 
 	return dbState
 }
